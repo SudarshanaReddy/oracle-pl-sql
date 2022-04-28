@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "bd891e16-f7c7-4923-a5f3-7d7d640d5653",
+		"name": "online book store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "book catalogue",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "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",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080/login/oauth2/code/github",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "clientSecret",
+							"value": "9f0dfd161889265f6f3c3027242f0bcf072f67f5",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "077f6f94c18b323d3fb6",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://github.com/login/oauth/access_token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://github.com/login/oauth/authorize",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://Onlinebookstore-env.eba-pi8mmxgm.us-west-2.elasticbeanstalk.com/v1/book/catalogue",
+					"protocol": "https",
+					"host": [
+						"Onlinebookstore-env",
+						"eba-pi8mmxgm",
+						"us-west-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"v1",
+						"book",
+						"catalogue"
+					]
+				},
+				"description": "This returns list of books available to order"
+			},
+			"response": []
+		},
+		{
+			"name": "order book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\":\"steve\",\n    \"bookIsbn\":\"4567\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://Onlinebookstore-env.eba-pi8mmxgm.us-west-2.elasticbeanstalk.com/v1/book/order",
+					"protocol": "http",
+					"host": [
+						"Onlinebookstore-env",
+						"eba-pi8mmxgm",
+						"us-west-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"v1",
+						"book",
+						"order"
+					]
+				},
+				"description": "This API helps to save the order connfirmed by the member"
+			},
+			"response": []
+		},
+		{
+			"name": "get order by username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://Onlinebookstore-env.eba-pi8mmxgm.us-west-2.elasticbeanstalk.com/v1/book/order/username/sudar",
+					"protocol": "http",
+					"host": [
+						"Onlinebookstore-env",
+						"eba-pi8mmxgm",
+						"us-west-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"v1",
+						"book",
+						"order",
+						"username",
+						"sudar"
+					]
+				},
+				"description": "This API helps to get the orders by username"
+			},
+			"response": []
+		},
+		{
+			"name": "get order by isbn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://Onlinebookstore-env.eba-pi8mmxgm.us-west-2.elasticbeanstalk.com/v1/book/order/isbn/1234",
+					"protocol": "http",
+					"host": [
+						"Onlinebookstore-env",
+						"eba-pi8mmxgm",
+						"us-west-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"v1",
+						"book",
+						"order",
+						"isbn",
+						"1234"
+					]
+				},
+				"description": "This API helps to get orders by isbn number"
+			},
+			"response": []
+		}
+	]
+}

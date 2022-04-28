@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="load_book_catalogue_data" author="sudarshanna" runOnChange="true">
+        <loadData file="db/changelog/bootstrap/BookCatalogue.csv"
+                  tableName="bookcatalogue">
+            <column name="isbn" header="isbn" type="String"></column>
+            <column name="name" header="name" type="String"></column>
+            <column name="author" header="author" type="String"></column>
+            <column name="year" header="year" type="String"></column>
+            <column name="description" header="description" type="String"></column>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="load_users" author="sudarshanna" runOnChange="true">
+        <loadData file="db/changelog/bootstrap/Users.csv"
+                  tableName="users">
+            <column name="firstname" header="firstname" type="String"></column>
+            <column name="lastname" header="lastname" type="String"></column>
+            <column name="address" header="address" type="String"></column>
+            <column name="telephone" header="telephone" type="String"></column>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
+
+

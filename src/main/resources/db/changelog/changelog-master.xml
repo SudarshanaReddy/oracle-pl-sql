@@ -11,5 +11,5 @@
 <!--    <include file="bootstrap/book-catalogue.xml" relativeToChangelogFile="true"/>-->
 <!--    <include file="/db/changelog/create-users.xml"/>-->
 <!--    <include file="/db/changelog/create-orders.xml"/>-->
-        <include file="get-books.xml" relativeToChangelogFile="true"/>
+<!--        <include file="get-books.xml" relativeToChangelogFile="true"/>-->
 </databaseChangeLog>

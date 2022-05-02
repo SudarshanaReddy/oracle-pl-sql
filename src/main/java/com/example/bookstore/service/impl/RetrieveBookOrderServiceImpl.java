@@ -13,7 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
+import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureQuery;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,14 +42,31 @@ public class RetrieveBookOrderServiceImpl implements RetrieveBookOrderService {
     }
 
     @Override
-    public BookCatalogue getAllBooksViaStoredProc() {
+    public BookCatalogue getAllBooksViaStoredProc() throws SQLException {
+
+        final BookCatalogue bookCatalogue = new BookCatalogue();
 
         StoredProcedureQuery storedProcedureQuery = entityManager
-                .createStoredProcedureQuery("GET_ALL_BOOKS");
+                .createStoredProcedureQuery("GET_ALL_BOOKS")
+                .registerStoredProcedureParameter("ref_cursor",void.class, ParameterMode.REF_CURSOR);
 
         storedProcedureQuery.execute();
 
-        return null;
+        ResultSet rset = null;
+
+        rset = (ResultSet) storedProcedureQuery.getOutputParameterValue("ref_cursor");
+
+        while (rset.next()) {
+            bookCatalogue.setId( rset.getInt("id"));
+            bookCatalogue.setIsbn(rset.getObject("isbn").toString());
+            bookCatalogue.setName(rset.getObject("name").toString());
+            bookCatalogue.setAuthor(rset.getObject("author").toString());
+            bookCatalogue.setYear(rset.getObject("name").toString());
+            bookCatalogue.setDescription(rset.getObject("name").toString());
+            bookCatalogue.setQuantity(rset.getInt("quantity"));
+        }
+
+        return bookCatalogue;
     }
 
     @Override

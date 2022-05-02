@@ -32,6 +32,6 @@ public class BookCatalogue {
     @Column(name = "description")
     private String description;
     @Column(name = "quantity")
-    private String quantity;
+    private int quantity;
 
 }

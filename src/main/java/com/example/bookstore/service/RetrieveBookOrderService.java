@@ -5,6 +5,7 @@ import com.example.bookstore.model.OrdersResponse;
 import com.example.bookstore.model.Users;
 import org.springframework.data.jpa.repository.query.Procedure;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface RetrieveBookOrderService {
@@ -13,5 +14,5 @@ public interface RetrieveBookOrderService {
      List<OrdersResponse> getOrdersByKeyAndValue(final String key, final String userName);
      List<Users> getUsers();
 
-     BookCatalogue getAllBooksViaStoredProc();
+     BookCatalogue getAllBooksViaStoredProc() throws SQLException;
 }

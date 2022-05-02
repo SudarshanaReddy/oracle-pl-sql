@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.SQLException;
+
 @RestController
 @RequestMapping(path = "/v1/storedproc/book")
 public class StoredProcedureBookCatalogue {
@@ -18,7 +20,7 @@ public class StoredProcedureBookCatalogue {
     private RetrieveBookOrderService retrieveBookOrderService;
 
     @PostMapping(path = "/catalogue", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<BookCatalogue> getBookCatalogue() {
+    public ResponseEntity<BookCatalogue> getBookCatalogue() throws SQLException {
         return ResponseEntity.ok(retrieveBookOrderService.getAllBooksViaStoredProc());
     }
 }

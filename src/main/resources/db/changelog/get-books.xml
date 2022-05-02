@@ -5,12 +5,12 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet author="sudarshana" id="st1">
+    <changeSet author="sudarshana" id="st5">
         <createProcedure>
-            create or replace PROCEDURE GET_ALL_BOOKS
+            create or replace PROCEDURE GET_ALL_BOOKS(ref_cursor OUT SYS_REFCURSOR)
             IS
             BEGIN
-            UPDATE bookcatalogue set name ='Agile' where ID=1;
+            OPEN ref_cursor FOR Select id,isbn,name,author,year,description,quantity from bookcatalogue where ID=1;
             END;
         </createProcedure>
         <rollback>

@@ -12,6 +12,8 @@ import com.example.bookstore.service.RetrieveBookOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.StoredProcedureQuery;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +28,25 @@ public class RetrieveBookOrderServiceImpl implements RetrieveBookOrderService {
 
     @Autowired
     private UsersRepository usersRepository;
+
+    @Autowired
+    private EntityManager entityManager;
+
+    @Override
+    public List<Users> getUsers() {
+        return usersRepository.findAll();
+    }
+
+    @Override
+    public BookCatalogue getAllBooksViaStoredProc() {
+
+        StoredProcedureQuery storedProcedureQuery = entityManager
+                .createStoredProcedureQuery("GET_ALL_BOOKS");
+
+        storedProcedureQuery.execute();
+
+        return null;
+    }
 
     @Override
     public List<BookCatalogue> getBookCatalogue() {
@@ -54,6 +75,7 @@ public class RetrieveBookOrderServiceImpl implements RetrieveBookOrderService {
                     ordersResponse.setBookAuthor(bookCatalogue.getAuthor());
                     ordersResponse.setBookName(bookCatalogue.getName());
                     ordersResponse.setPublicationYear(bookCatalogue.getYear());
+                    ordersResponse.setBookQuantity(bookOrder.getQuantity());
                 }
             }
             ordersResponseList.add(ordersResponse);
@@ -99,6 +121,7 @@ public class RetrieveBookOrderServiceImpl implements RetrieveBookOrderService {
                     ordersResponse.setBookAuthor(bookCatalogue.getAuthor());
                     ordersResponse.setBookName(bookCatalogue.getName());
                     ordersResponse.setPublicationYear(bookCatalogue.getYear());
+                    ordersResponse.setBookQuantity(bookOrder.getQuantity());
                 }
             }
             ordersResponseList.add(ordersResponse);

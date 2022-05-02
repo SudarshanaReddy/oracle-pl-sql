@@ -1,9 +1,9 @@
 package com.example.bookstore.repository;
 
-
 import com.example.bookstore.model.BookCatalogue;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
 
 
@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends JpaRepository<BookCatalogue, String> {
 
+    @Procedure(procedureName = "GET_ALL_BOOKS")
+    BookCatalogue getAllBookViaStoredProc();
 }

@@ -28,10 +28,11 @@ public class BookOrderServiceImpl implements BookOrderService {
            Orders order = new Orders();
            order.setUsername(orderRequest.getUserName());
            order.setBookisbn(orderRequest.getBookIsbn());
+           order.setQuantity(orderRequest.getQuantity());
            order = orderRepository.save(order);
            saveOrderResponse.setOrderId(order.getId());
            saveOrderResponse.setMessage("Order has placed order for user :" + orderRequest.getUserName() + " and"
-                   + "for isbn: " + orderRequest.getBookIsbn());
+                   + " for isbn: " + orderRequest.getBookIsbn());
        } catch (Exception exception) {
            saveOrderResponse.setOrderId(0);
            saveOrderResponse.setMessage("Failed to place order for user :" + orderRequest.getUserName() + " and"

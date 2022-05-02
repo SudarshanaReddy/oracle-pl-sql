@@ -5,10 +5,11 @@
         xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <include file="create-book-catalogue.xml" relativeToChangelogFile="true"/>
-    <include file="create-users.xml" relativeToChangelogFile="true"/>
-    <include file="create-orders.xml" relativeToChangelogFile="true"/>
-    <include file="bootstrap/book-catalogue.xml" relativeToChangelogFile="true"/>
+<!--    <include file="create-book-catalogue.xml" relativeToChangelogFile="true"/>-->
+<!--    <include file="create-users.xml" relativeToChangelogFile="true"/>-->
+<!--    <include file="create-orders.xml" relativeToChangelogFile="true"/>-->
+<!--    <include file="bootstrap/book-catalogue.xml" relativeToChangelogFile="true"/>-->
 <!--    <include file="/db/changelog/create-users.xml"/>-->
 <!--    <include file="/db/changelog/create-orders.xml"/>-->
+        <include file="get-books.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

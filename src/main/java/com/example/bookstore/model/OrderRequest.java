@@ -8,4 +8,5 @@ import lombok.Data;
 public class OrderRequest {
     private String userName;
     private String bookIsbn;
+    private int quantity;
 }

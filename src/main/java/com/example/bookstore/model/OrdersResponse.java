@@ -14,5 +14,6 @@ public class OrdersResponse {
     private String bookName;
     private String bookAuthor;
     private String publicationYear;
+    private int bookQuantity;
 
 }

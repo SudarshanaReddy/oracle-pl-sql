@@ -23,4 +23,6 @@ public class Orders {
     private String username;
     @Column(name = "bookisbn")
     private String bookisbn;
+    @Column(name= "quantity")
+    private int quantity;
 }

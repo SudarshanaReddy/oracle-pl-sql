@@ -6,20 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@NamedStoredProcedureQuery(name = "findAllBooks",
+        procedureName = "GET_ALL_BOOKS")
 @Table(name ="bookcatalogue")
 public class BookCatalogue {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "isbn")
     private String isbn;
@@ -31,4 +31,7 @@ public class BookCatalogue {
     private String year;
     @Column(name = "description")
     private String description;
+    @Column(name = "quantity")
+    private String quantity;
+
 }

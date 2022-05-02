@@ -3,7 +3,9 @@ package com.example.bookstore.controller;
 import com.example.bookstore.exception.RecordNotFoundException;
 import com.example.bookstore.model.BookCatalogue;
 import com.example.bookstore.model.OrdersResponse;
+import com.example.bookstore.model.Users;
 import com.example.bookstore.service.RetrieveBookOrderService;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,17 @@ public class RetrieveBookOrdersController {
 
     @Autowired
     private RetrieveBookOrderService retrieveBookOrderService;
+
+    @GetMapping(path = "/health", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("online book store is up and running");
+    }
+
+    @GetMapping(path = "/users", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<List<Users>> getUsers() {
+        final List<Users> registeredUsers =  retrieveBookOrderService.getUsers();
+        return ResponseEntity.ok(registeredUsers);
+    }
 
     @GetMapping(path = "/catalogue", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<List<BookCatalogue>> getBookCatalogue() {

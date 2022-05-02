@@ -5,16 +5,19 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet author="sudarshana" id="3">
+    <changeSet author="sudarshana" id="1">
         <createTable tableName="orders">
             <column autoIncrement="true" name="id" type="INT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="username" type="VARCHAR(255)">
-                <constraints foreignKeyName="fk_username" referencedTableName="users" referencedColumnNames="username" nullable="true"/>
+            <column name="userid" type="INT">
+                <constraints foreignKeyName="fk_userid" referencedTableName="users" referencedColumnNames="id" nullable="true"/>
             </column>
-            <column name="bookisbn" type="VARCHAR(255)">
-                <constraints foreignKeyName="fk_bookisbn" referencedTableName="bookcatalogue" referencedColumnNames="isbn" nullable="true"/>
+            <column name="bookid" type="INT">
+                <constraints foreignKeyName="fk_bookid" referencedTableName="bookcatalogue" referencedColumnNames="id" nullable="true"/>
+            </column>
+            <column name="quantity" type="NUMERIC">
+                <constraints nullable="false"/>
             </column>
         </createTable>
         <rollback>

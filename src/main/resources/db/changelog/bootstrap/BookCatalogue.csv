@@ -1,3 +1,19 @@
-isbn,name,author,year,description
-1234,AgileHandbook,Santhosh,2000,Tells about Agile in detail
-4567,SafeAgile,Steve,2005,Tells about Safe Agile In Detail
+id,isbn,name,author,year,description,quantity
+1,0001,AgileHandbook,Santhosh,2000,Tells about Agile in detail,20
+2,0002,SafeAgile,Steve,2005,Tells about Safe Agile In Detail,30
+3,0003,Physics,Santhosh,2000,Tells about Agile in detail,20
+4,0004,Chemistry,satheesh,2005,Tells about Safe Agile In Detail,30
+5,0005,English,Santhosh,2000,Tells about Agile in detail,20
+6,0006,Dummy Book,Steve,2005,Tells about Safe Agile In Detail,30
+7,0007,Maths,Mulanga,2000,Tells about Agile in detail,20
+8,0008,C++,Steve,2005,Tells about Safe Agile In Detail,10
+9,0009,Java,Sean,2000,Tells about Agile in detail,20
+10,0010,Ruby,sachin,2005,Tells about Safe Agile In Detail,30
+11,0011,python,Kay,2000,Tells about Agile in detail,20
+12,0012,CSE fundamentals,Steve,2005,Tells about Safe Agile In Detail,2
+13,0013,C Programming,Santhosh,2000,Tells about Agile in detail,20
+14,0014,AWS handbook,Steve,2005,Tells about Safe Agile In Detail,30
+15,0015,Openshift handbook,Santhosh,2000,Tells about Agile in detail,20
+16,0016,Azure handbook,Steve,2005,Tells about Safe Agile In Detail,4
+17,0017,GCP handbook,Santhosh,2000,Tells about Agile in detail,6
+18,0018,Terraform,Steve,2005,Tells about Safe Agile In Detail,5

@@ -5,7 +5,7 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet author="sudarshana" id="1">
+    <changeSet author="sudarshana" id="2">
         <createTable tableName="users">
             <column autoIncrement="true" name="id" type="INT">
                 <constraints primaryKey="true"/>

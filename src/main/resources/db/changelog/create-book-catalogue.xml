@@ -5,7 +5,7 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet author="sudarshana" id="1">
+    <changeSet author="sudarshana" id="2ß">
         <createTable tableName="bookcatalogue">
             <column autoIncrement="true" name="id" type="INT">
                 <constraints primaryKey="true"/>
@@ -23,6 +23,9 @@
                 <constraints nullable="false"/>
             </column>
             <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="NUMERIC">
                 <constraints nullable="false"/>
             </column>
         </createTable>
